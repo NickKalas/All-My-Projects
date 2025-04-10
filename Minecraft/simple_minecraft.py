@@ -49,15 +49,12 @@ def input(key):
                 dig_sound.play()
                 destroy(box)
             if key == "q":
-                application.quit()  # Fixed quit method
+                application.quit()
 
 # Player controller
 player = FirstPersonController()
 
-# Debugging and playing background music
-print("Background music is about to play...")  # Debug message
 background_music.play()  # Play background music
-print("Background music is now playing.")  # Debug message
 
 # Run the game
 app.run()
