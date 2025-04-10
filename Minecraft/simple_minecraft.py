@@ -20,13 +20,12 @@ for i in range(25):
                      texture='Textures/grass_texture.png', parent=scene, origin_y=0.5)
         boxes.append(box)
 
-# Track the player's previous position
 previous_position = Vec3(0, 0, 0)
 
 # Walking sound when the player moves
 def update():
     global previous_position
-    if player.position != previous_position:  # Check if the player moved
+    if player.position != previous_position:  # Checking if the player moved
         if not walk_sound.playing:
             walk_sound.play()  # Play walking sound when moving
     else:
