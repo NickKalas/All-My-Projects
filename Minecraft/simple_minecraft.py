@@ -3,16 +3,15 @@ from ursina.prefabs.first_person_controller import FirstPersonController
 
 app = Ursina()
 
-# Audio files
 place_sound = Audio("Sound/Break.ogg", autoplay=False)
 dig_sound = Audio("Sound/Dig.ogg", autoplay=False)
 walk_sound = Audio("Sound/Walking.ogg", loop=True, autoplay=False)
-background_music = Audio('Sound/theme.ogg', loop=True, autoplay=True, volume=0.5)  # Background music
+background_music = Audio('Sound/theme.ogg', loop=True, autoplay=True, volume=0.5) 
 
-# Sky for background
+
 Sky()
 
-# Create the terrain with boxes
+
 boxes = []
 for i in range(25):
     for j in range(25):
@@ -22,19 +21,17 @@ for i in range(25):
 
 previous_position = Vec3(0, 0, 0)
 
-# Walking sound when the player moves
 def update():
     global previous_position
-    if player.position != previous_position:  # Checking if the player moved
+    if player.position != previous_position:  
         if not walk_sound.playing:
-            walk_sound.play()  # Play walking sound when moving
+            walk_sound.play()  
     else:
         if walk_sound.playing:
-            walk_sound.stop()  # Stop walking sound when player stops
+            walk_sound.stop()  
 
-    previous_position = player.position  # Update previous position to current
+    previous_position = player.position  
 
-# Input events
 def input(key):
     for box in boxes:
         if box.hovered:
@@ -50,7 +47,6 @@ def input(key):
             if key == "q":
                 application.quit()
 
-# Player controller
 player = FirstPersonController()
 
 background_music.play()  # Play background music
