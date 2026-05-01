@@ -49,7 +49,6 @@ def input(key):
 
 player = FirstPersonController()
 
-background_music.play()  # Play background music
+background_music.play()  
 
-# Run the game
 app.run()
